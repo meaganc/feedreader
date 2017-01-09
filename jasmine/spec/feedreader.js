@@ -31,7 +31,7 @@ $(function() {
       allFeeds.forEach(function(feed){
         expect(feed).toBeDefined();
         expect(feed.url).toBeDefined();
-        expect(feed.url).not.toBe(null);
+        expect(feed.url).not.toBe('');
       });
     });
 
@@ -39,7 +39,7 @@ $(function() {
     it('has a name on every feed', function(){
       allFeeds.forEach(function(feed){
         expect(feed.name).toBeDefined();
-        expect(feed.name).not.toBe(null);
+        expect(feed.name).not.toBe('');
       });
     });
   });
@@ -72,8 +72,7 @@ $(function() {
     });
 
     it('displays the entries on load', function(done){
-      expect($('.feed').children().length).not.toBe(0);
-      expect($('.entry').length).not.toBe(0);
+      expect($('.feed .entry').length).not.toBe(0);
       done();
     });
   });
