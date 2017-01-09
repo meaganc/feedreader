@@ -93,10 +93,10 @@ $(function() {
     beforeEach(function(done){
       loadFeed(0, function(){
         firstFeed = $('.feed').html();
-        firstHeader = $('.feed .entry h2')[0];
+        firstHeader = $('.feed .entry h2')[0].html();
         loadFeed(1, function(){
           secondFeed = $('.feed').html();
-          secondHeader = $('.feed .entry h2')[0];
+          secondHeader = $('.feed .entry h2')[0].html();
           loadFeed(0, function(){
             done();
           });
@@ -106,7 +106,7 @@ $(function() {
 
     it('has different content when new feed loads', function(done){
       expect($('.feed').html()).toBe(firstFeed);
-      expect($('.feed .entry h2')[0]).not.toBe(firstHeader);
+      expect($('.feed .entry h2')[0]).toBe(firstHeader);
       expect(secondFeed).not.toBe(firstFeed);
       expect(secondHeader).not.toBe(firstHeader);
       done();
